@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payroll
 {
-    class Shift
+    public class Shift
     {
         #region Field Variables
         private string m_WorkerId;
@@ -14,10 +14,13 @@ namespace Payroll
         private DateTime m_Date;
         #endregion
 
+        #region Field Properties
         public string WorkerId { get => m_WorkerId; set => m_WorkerId = value; }
         public double HoursWorked { get => m_HoursWorked; set => m_HoursWorked = value; }
         public DateTime Date { get => m_Date; set => m_Date = value; }
+        #endregion
 
+        #region Methods
         public Shift()
         {
             m_WorkerId = "R1";
@@ -25,6 +28,12 @@ namespace Payroll
             m_Date = new DateTime(1994, 06, 12);
         }
 
+
+        public override string ToString()
+        {
+            return m_WorkerId + m_HoursWorked + m_Date;
+        }
+        #endregion
 
     }
 }
