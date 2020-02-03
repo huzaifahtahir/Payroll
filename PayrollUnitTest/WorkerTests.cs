@@ -34,8 +34,6 @@ namespace PayrollUnitTest
             Worker w = new Worker();
             double actual = w.Payrate;
             Assert.AreEqual(expected, actual, 0.001, "The payrate is not the same");
-
         }
-
     }
 }
