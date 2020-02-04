@@ -30,7 +30,7 @@ namespace Payroll
 
         public override string ToString()
         {
-            return m_Name + m_Id + m_Payrate;
+            return m_Name + ", " + m_Id + ", " + m_Payrate;
         }
         #endregion
 

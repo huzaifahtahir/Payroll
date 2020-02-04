@@ -2,6 +2,24 @@
 using Payroll;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+//******************************************************
+// File: WorkerTests.cs
+//
+// Purpose: Contains the class definition for GameInfo.
+//          GameInfo will hold all game information 
+//          such as the high/low range of allowable
+//          guesses, the number of guesses allowed,
+//          the number of guesses the player actually
+//          took, and whether or not the player won.
+//          This class was built to be used in the
+//          NumberGuessing game.
+//
+// Written By: Arthur Hoskey 
+//
+// Compiler: Visual Studio 2015
+//
+//******************************************************
+
 namespace PayrollUnitTest
 {
     [TestClass]

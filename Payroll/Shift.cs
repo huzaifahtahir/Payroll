@@ -8,6 +8,7 @@ namespace Payroll
 {
     public class Shift
     {
+
         #region Field Variables
         private string m_WorkerId;
         private double m_HoursWorked;
@@ -23,7 +24,7 @@ namespace Payroll
         #region Methods
         public Shift()
         {
-            m_WorkerId = "R1";
+            m_WorkerId = "100";
             m_HoursWorked = 5;
             m_Date = new DateTime(1994, 06, 12);
         }
@@ -31,7 +32,7 @@ namespace Payroll
 
         public override string ToString()
         {
-            return m_WorkerId + m_HoursWorked + m_Date;
+            return m_WorkerId + ", " + m_HoursWorked + ", " + m_Date;
         }
         #endregion
 
