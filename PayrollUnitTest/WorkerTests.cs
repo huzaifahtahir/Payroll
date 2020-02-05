@@ -5,18 +5,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 //******************************************************
 // File: WorkerTests.cs
 //
-// Purpose: Contains the class definition for GameInfo.
-//          GameInfo will hold all game information 
-//          such as the high/low range of allowable
-//          guesses, the number of guesses allowed,
-//          the number of guesses the player actually
-//          took, and whether or not the player won.
-//          This class was built to be used in the
-//          NumberGuessing game.
+// Purpose: Contains the class definition for WorkerTests.
+//          WorkerTests will hold all the unit test methods
+//          for the Worker class.
+//          This class was built to be used in Unit
+//          Testing for the Worker class.
 //
-// Written By: Arthur Hoskey 
+// Written By: Huzaifah Tahir 
 //
-// Compiler: Visual Studio 2015
+// Compiler: Visual Studio 2019
 //
 //******************************************************
 
@@ -25,6 +22,13 @@ namespace PayrollUnitTest
     [TestClass]
     public class WorkerTests
     {
+        #region Test Methods
+        //****************************************************
+        // Method: TestName
+        //
+        // Purpose: To test the name for unit testing.
+        //****************************************************
+
         [TestMethod]
         public void TestName()
         {
@@ -35,6 +39,11 @@ namespace PayrollUnitTest
             Assert.AreEqual(expected, actual, "The name is not the same.");
         }
 
+        //****************************************************
+        // Method: TestId
+        //
+        // Purpose: To test the ID for unit testing.
+        //****************************************************
         [TestMethod]
         public void TestId()
         {
@@ -45,6 +54,11 @@ namespace PayrollUnitTest
             Assert.AreEqual(expected, actual, 0.001, "The ID is not the same.");
         }
 
+        //****************************************************
+        // Method: TestPayRate
+        //
+        // Purpose: To test the payrate for unit testing.
+        //****************************************************
         [TestMethod]
         public void TestPayRate()
         {
@@ -53,5 +67,6 @@ namespace PayrollUnitTest
             double actual = w.Payrate;
             Assert.AreEqual(expected, actual, 0.001, "The payrate is not the same");
         }
+        #endregion
     }
 }
