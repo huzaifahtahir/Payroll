@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 //******************************************************
 // File: Worker.cs
@@ -22,6 +23,7 @@ using System.Threading.Tasks;
 
 namespace Payroll
 {
+    [DataContract]
     public class Worker
     {
         // Declare Fields
@@ -33,8 +35,13 @@ namespace Payroll
 
         // Define properties for fields
         #region Field Properties
+        [DataMember(Name = "id")]
         public int Id { get => m_Id; set => m_Id = value; }
+
+        [DataMember(Name = "payrate")]
         public double Payrate { get => m_Payrate; set => m_Payrate = value; }
+
+        [DataMember(Name = "name")]
         public string Name { get => m_Name; set => m_Name = value; }
         #endregion
 

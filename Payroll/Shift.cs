@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,7 @@ using System.Threading.Tasks;
 
 namespace Payroll
 {
+    [DataContract]
     public class Shift
     {
         // Declare Fields
@@ -32,8 +34,13 @@ namespace Payroll
 
         // Properties for all the fields
         #region Field Properties
+        [DataMember(Name = "workid")]
         public string WorkerId { get => m_WorkerId; set => m_WorkerId = value; }
+
+        [DataMember(Name = "hoursWorked")]
         public double HoursWorked { get => m_HoursWorked; set => m_HoursWorked = value; }
+
+        [DataMember(Name = "date")]
         public DateTime Date { get => m_Date; set => m_Date = value; }
         #endregion
 
