@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,11 +7,27 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
+//******************************************************
+// File: Department.cs
+//
+// Purpose: Contains the class definition for Department.
+//          Department will hold all the fields, properties, 
+//          and methods for the Department class.
+//          This class was built to be used in the
+//          Payroll App.
+//
+// Written By: Huzaifah Tahir
+//
+// Compiler: Visual Studio 2019
+//
+//******************************************************
+
 namespace Payroll
 {
     [DataContract]
     public class Department
     {
+        // Declare Fields
         #region Fields
         private string m_Name;
         private List<Worker> m_Workers;
@@ -43,6 +60,7 @@ namespace Payroll
                 w.Id = i + 100;
                 Workers.Add(w);
             }
+
             Shifts = new List<Shift>();
             for(int i = 0; i < 5; i++)
             {
@@ -57,8 +75,8 @@ namespace Payroll
         {
             if (Workers.Exists(w => w.Id == workerId))
             {
-                Console.WriteLine(Workers.Find(w => w.Id == workerId));
-                return null;
+                //Console.WriteLine(Workers.Find(w => w.Id == workerId));
+                return Workers.Find(w => w.Id == workerId);
             }
 
             else
@@ -74,8 +92,7 @@ namespace Payroll
             double pay = 0;
             if (Workers.Exists(w => w.Id == workerId) && Shifts.Exists(s => s.WorkerId == Convert.ToString(workerId)))
             {
-                pay = w.Payrate * s.HoursWorked;
-               
+                pay = w.Payrate * s.HoursWorked;             
             }
 
             return pay;       
@@ -83,11 +100,13 @@ namespace Payroll
 
         public override string ToString()
         {
-            Console.WriteLine(Name);       
+            Console.WriteLine("\n" + Name);       
             Workers.ForEach(Console.WriteLine);
             Shifts.ForEach(Console.WriteLine);
             return null;
         }
+
+        
         #endregion
 
 

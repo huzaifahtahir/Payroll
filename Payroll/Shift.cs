@@ -37,7 +37,7 @@ namespace Payroll
         [DataMember(Name = "workid")]
         public string WorkerId { get => m_WorkerId; set => m_WorkerId = value; }
 
-        [DataMember(Name = "hoursWorked")]
+        [DataMember(Name = "hoursworked")]
         public double HoursWorked { get => m_HoursWorked; set => m_HoursWorked = value; }
 
         [DataMember(Name = "date")]
@@ -67,7 +67,7 @@ namespace Payroll
         //****************************************************
         public override string ToString()
         {
-            return m_WorkerId + ", " + m_HoursWorked + ", " + m_Date;
+            return m_WorkerId + ", " + m_HoursWorked + ", " + m_Date.Month + "/" + m_Date.Day + "/" + m_Date.Year;
         }
         #endregion
 
