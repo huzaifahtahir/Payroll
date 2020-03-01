@@ -32,7 +32,7 @@ namespace PayrollUnitTest
         [TestMethod]
         public void TestWorkerId()
         {
-            string expected = "R1";
+            string expected = "100";
             Shift s = new Shift();
 
             string actual = s.WorkerId;
