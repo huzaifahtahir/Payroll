@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Payroll;
 
 //******************************************************
-// File: WorkerTests.cs
+// File: DepartmentTests.cs
 //
 // Purpose: Contains the class definition for Department 
 //          Tests. Department Tests will hold all the unit 
@@ -73,8 +73,8 @@ namespace PayrollUnitTest
         {
             Department d = new Department();
             int validID = 101;
-            double expectedPay = d.CalculatePay(validID);
-            double actualPay = 5.55;
+            double expectedPay = 5.55;
+            double actualPay = d.CalculatePay(validID);
 
             Assert.AreEqual(expectedPay, actualPay, 0.001, "The Pay did not match");
 

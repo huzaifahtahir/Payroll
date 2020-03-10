@@ -44,11 +44,17 @@ namespace Payroll
         public List<Worker> Workers { get => m_Workers; set => m_Workers = value; }
         [DataMember(Name = "shifts")]
         public List<Shift> Shifts { get => m_Shifts; set => m_Shifts = value; }
-             
+
         #endregion
 
         #region Methods
 
+        //****************************************************
+        // Method: Department()
+        //
+        // Purpose: Constructor.
+        //          To set default values to Dept fields. 
+        //****************************************************
         public Department()
         {
             Name = "HR Department";
@@ -70,23 +76,34 @@ namespace Payroll
             }
         }
 
-
+        //****************************************************
+        // Method: FindWorker(int workerId)
+        //
+        // Purpose: returns worker instance if found in the 
+        //          list, otherwise returns nothing.
+        //****************************************************
         public Worker FindWorker(int workerId)
         {
             if (Workers.Exists(w => w.Id == workerId))
             {
-                //Console.WriteLine(Workers.Find(w => w.Id == workerId));
+                //Console.WriteLine("\n" + Workers.Find(w => w.Id == workerId) + "\n");
                 return Workers.Find(w => w.Id == workerId);
             }
 
             else
             {
-                Console.WriteLine("Worker with that ID does not exist");
+                Console.WriteLine("\nWorker with that ID does not exist\n");
                 return null;
             }
            
         }
 
+        //****************************************************
+        // Method: CalculatePay(int workerId)
+        //
+        // Purpose: returns pay of worker if the worker exists
+        //          otherwise, returns a 0;
+        //****************************************************
         public double CalculatePay(int workerId)
         {
             double pay = 0;
@@ -98,15 +115,37 @@ namespace Payroll
             return pay;       
         }
 
+        //****************************************************
+        // Method: ToString()
+        //
+        // Purpose: To show all the fields of dept for output.
+        //****************************************************
         public override string ToString()
         {
-            Console.WriteLine("\n" + Name);       
-            Workers.ForEach(Console.WriteLine);
-            Shifts.ForEach(Console.WriteLine);
-            return null;
+            string data = "";
+
+            data += Name + "\n";
+
+            foreach(Worker w in Workers)
+            {
+                data += w.ToString() + "\n";
+            }
+
+            foreach(Shift s in Shifts)
+            {
+                data += s.ToString() + "\n";
+            }
+            return data;
+
+
+        //public override string ToString() => $"{this.Name}, {this.m_Workers}, {this.m_Shifts}";
+            //Console.WriteLine("\n" + Name);
+            //Workers.ForEach(Console.WriteLine);
+            //Shifts.ForEach(Console.WriteLine);
+        //=> $"this.name"
         }
 
-        
+
         #endregion
 
 

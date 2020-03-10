@@ -66,10 +66,13 @@ namespace Payroll
         //
         // Purpose: To show the all the fields for output.
         //****************************************************
-        public override string ToString()
-        {
-            return m_Name + ", " + m_Id + ", " + m_Payrate;
-        }
+        //public override string ToString()
+        //{
+        //    return m_Name + ", " + m_Id + ", " + m_Payrate;
+        //}
+
+        public override string ToString() => $"{this.Name}, {this.Id}, {this.Payrate}";
+
 
         #endregion
 
