@@ -68,7 +68,7 @@ namespace Payroll
             }
 
             Shifts = new List<Shift>();
-            for(int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 s = new Shift();
                 s.WorkerId = Convert.ToString(i + 100);
@@ -95,7 +95,7 @@ namespace Payroll
                 Console.WriteLine("\nWorker with that ID does not exist\n");
                 return null;
             }
-           
+
         }
 
         //****************************************************
@@ -106,13 +106,62 @@ namespace Payroll
         //****************************************************
         public double CalculatePay(int workerId)
         {
-            double pay = 0;
-            if (Workers.Exists(w => w.Id == workerId) && Shifts.Exists(s => s.WorkerId == Convert.ToString(workerId)))
+            double hours = 0;
+
+            foreach (Shift x in Shifts)
             {
-                pay = w.Payrate * s.HoursWorked;             
+                if (x.WorkerId == Convert.ToString(workerId))
+                {
+                    hours += x.HoursWorked;
+                }
             }
 
-            return pay;       
+            Worker _worker = FindWorker(workerId);
+            double pay = hours * _worker.Payrate;
+
+            return pay;
+        }
+
+        //****************************************************
+        // Method: CalculateHours(int workerId)
+        //
+        // Purpose: returns hours of worker if the worker exists
+        //          otherwise, returns a 0;
+        //****************************************************
+        public double CalculateHours(int workerId)
+        {
+            double hours = 0;
+
+            foreach (Shift x in Shifts)
+            {
+                if (x.WorkerId == Convert.ToString(workerId))
+                {
+                    hours += x.HoursWorked;
+                }
+            }
+
+            return hours;
+        }
+
+        //****************************************************
+        // Method: CalculateTotalHours
+        //
+        // Purpose: returns total hours worked by employees;
+        // Note:    I realized this was redundant way into
+        //          working the rest of the GUI so I left it.
+        //****************************************************
+        public double CalculateTotalHours()
+        {
+            double hours = 0;
+
+            foreach (Shift x in Shifts)
+            {
+
+                hours += x.HoursWorked;
+
+            }
+
+            return hours;
         }
 
         //****************************************************
@@ -126,23 +175,23 @@ namespace Payroll
 
             data += Name + "\n";
 
-            foreach(Worker w in Workers)
+            foreach (Worker w in Workers)
             {
                 data += w.ToString() + "\n";
             }
 
-            foreach(Shift s in Shifts)
+            foreach (Shift s in Shifts)
             {
                 data += s.ToString() + "\n";
             }
             return data;
 
 
-        //public override string ToString() => $"{this.Name}, {this.m_Workers}, {this.m_Shifts}";
+            //public override string ToString() => $"{this.Name}, {this.m_Workers}, {this.m_Shifts}";
             //Console.WriteLine("\n" + Name);
             //Workers.ForEach(Console.WriteLine);
             //Shifts.ForEach(Console.WriteLine);
-        //=> $"this.name"
+            //=> $"this.name"
         }
 
 
